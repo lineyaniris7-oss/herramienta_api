@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from app.database.conexion import Base
 
+
 class Herramienta(Base):
     __tablename__ = "herramientas"
 
