@@ -6,6 +6,12 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Indica que se use el controlador psycopg2 (el que está en requirements.txt)
+if DATABASE_URL and DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgresql://", "postgresql+psycopg2://", 1
+    )
+
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 Base = declarative_base()
