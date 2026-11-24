@@ -1,20 +1,15 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
-class HerramientaBase(BaseModel):
-    nombre: str
-    codigo: str
-    categoria: str
-    marca: str
+
+class HerramientaCreate(BaseModel):
+    nombre: str = Field(min_length=1)
+    codigo: str = Field(min_length=1)
+    categoria: str = Field(min_length=1)
+    marca: str = Field(min_length=1)
     cantidad_disponible: int = Field(ge=0)  # no permite negativos
 
-class HerramientaCrear(HerramientaBase):
-    pass
 
-class HerramientaActualizar(HerramientaBase):
-    pass
+class HerramientaResponse(HerramientaCreate):
+    id: int
 
-class HerramientaRespuesta(HerramientaBase):
-    id: int  # el id solo se devuelve, no se envía al crear
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
