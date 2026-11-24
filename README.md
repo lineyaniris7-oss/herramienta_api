@@ -166,4 +166,6 @@ Documentación: https://TU-API.onrender.com/docs
 
 ## Enlaces
 
-- Repositorio: https://github.com/TU_USUARIO/herramienta_api
+URL de la API: https://herramienta-api.onrender.com
+Documentación: https://herramienta-api.onrender.com/docs
+Repositorio: https://github.com/lineyaniris7-oss/herramienta_api
