@@ -114,6 +114,49 @@ Se utilizan dos tablas independientes (sin relaciones entre ellas).
 | PUT | /herramientas/{id} | Actualizar herramienta |
 | DELETE | /herramientas/{id} | Eliminar herramienta |
 
+### Diagrama de las tablas
+
+```
+    USUARIOS {
+        int id PK
+        string nombre
+        string correo UK
+        string contrasena_hash
+    }
+    HERRAMIENTAS {
+        int id PK
+        string nombre
+        string codigo UK
+        string categoria
+        string marca
+        int cantidad_disponible
+    }
+```
+
+Las dos tablas son independientes, sin relaciones entre ellas.
+
+### Diagrama de las tablas
+
+
+erDiagram
+    USUARIOS {
+        int id PK
+        string nombre
+        string correo UK
+        string contrasena_hash
+    }
+    HERRAMIENTAS {
+        int id PK
+        string nombre
+        string codigo UK
+        string categoria
+        string marca
+        int cantidad_disponible
+    }
+
+
+Las dos tablas son independientes, sin relaciones entre ellas.
+
 ### Códigos de respuesta
 
 | Código | Significado |
