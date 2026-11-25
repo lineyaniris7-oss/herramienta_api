@@ -1,136 +1,52 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.database.conexion import get_db
-from app.models.herramienta import Herramienta
+from app.repositories.herramienta_repository import HerramientaRepository
 from app.schemas.herramienta_schema import HerramientaCreate, HerramientaResponse
+from app.services.herramienta_service import HerramientaService
 
 router = APIRouter(prefix="/herramientas", tags=["Herramientas"])
 
 
-# GET: Consultar todas (filtro opcional por categoría)
-@router.get("/", response_model=list[HerramientaResponse])
-def get_herramientas(
-    categoria: str | None = None,
-    db: Session = Depends(get_db)
-):
-    consulta = db.query(Herramienta)
-
-    if categoria:
-        consulta = consulta.filter(
-            Herramienta.categoria.ilike(categoria)
-        )
-
-    return consulta.all()
+def get_service(db: Session = Depends(get_db)):
+    return HerramientaService(HerramientaRepository(db))
 
 
-# GET: Consultar una herramienta por ID
-@router.get("/{herramienta_id}", response_model=HerramientaResponse)
-def get_herramienta(
-    herramienta_id: int,
-    db: Session = Depends(get_db)
-):
-    herramienta = db.query(Herramienta).filter(
-        Herramienta.id == herramienta_id
-    ).first()
-
-    if herramienta is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Herramienta no encontrada"
-        )
-
-    return herramienta
-
-
-# POST: Registrar una herramienta
 @router.post("/", response_model=HerramientaResponse, status_code=201)
-def create_herramienta(
-    data: HerramientaCreate,
-    db: Session = Depends(get_db)
+def registrar(
+    data: HerramientaCreate, service: HerramientaService = Depends(get_service)
 ):
-    existing = db.query(Herramienta).filter(
-        Herramienta.codigo == data.codigo
-    ).first()
-
-    if existing:
-        raise HTTPException(
-            status_code=400,
-            detail="Ya existe una herramienta con ese código"
-        )
-
-    herramienta = Herramienta(
-        nombre=data.nombre,
-        codigo=data.codigo,
-        categoria=data.categoria,
-        marca=data.marca,
-        cantidad_disponible=data.cantidad_disponible
-    )
-
-    db.add(herramienta)
-    db.commit()
-    db.refresh(herramienta)
-
-    return herramienta
+    return service.registrar(data)
 
 
-# PUT: Actualizar una herramienta
+# Ejemplo con filtro: /herramientas/?categoria=Manual
+@router.get("/", response_model=list[HerramientaResponse])
+def consultar_todas(
+    categoria: str | None = None,
+    service: HerramientaService = Depends(get_service),
+):
+    return service.consultar_todas(categoria)
+
+
+@router.get("/{herramienta_id}", response_model=HerramientaResponse)
+def consultar_por_id(
+    herramienta_id: int, service: HerramientaService = Depends(get_service)
+):
+    return service.consultar_por_id(herramienta_id)
+
+
 @router.put("/{herramienta_id}", response_model=HerramientaResponse)
-def update_herramienta(
+def actualizar(
     herramienta_id: int,
     data: HerramientaCreate,
-    db: Session = Depends(get_db)
+    service: HerramientaService = Depends(get_service),
 ):
-    herramienta = db.query(Herramienta).filter(
-        Herramienta.id == herramienta_id
-    ).first()
-
-    if herramienta is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Herramienta no encontrada"
-        )
-
-    duplicated = db.query(Herramienta).filter(
-        Herramienta.codigo == data.codigo,
-        Herramienta.id != herramienta_id
-    ).first()
-
-    if duplicated:
-        raise HTTPException(
-            status_code=400,
-            detail="Ya existe una herramienta con ese código"
-        )
-
-    herramienta.nombre = data.nombre
-    herramienta.codigo = data.codigo
-    herramienta.categoria = data.categoria
-    herramienta.marca = data.marca
-    herramienta.cantidad_disponible = data.cantidad_disponible
-
-    db.commit()
-    db.refresh(herramienta)
-
-    return herramienta
+    return service.actualizar(herramienta_id, data)
 
 
-# DELETE: Eliminar una herramienta
-@router.delete("/{herramienta_id}")
-def delete_herramienta(
-    herramienta_id: int,
-    db: Session = Depends(get_db)
+@router.delete("/{herramienta_id}", status_code=204)
+def eliminar(
+    herramienta_id: int, service: HerramientaService = Depends(get_service)
 ):
-    herramienta = db.query(Herramienta).filter(
-        Herramienta.id == herramienta_id
-    ).first()
-
-    if herramienta is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Herramienta no encontrada"
-        )
-
-    db.delete(herramienta)
-    db.commit()
-
-    return {"message": "Herramienta eliminada correctamente"}
+    service.eliminar(herramienta_id)
