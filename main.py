@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 
 from app.database.conexion import Base, engine
@@ -9,5 +10,15 @@ from app.routes import usuarios, herramienta
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Inventario de herramientas")
+
+
+@app.get("/")
+def inicio():
+    return {
+        "mensaje": "API Inventario de Herramientas funcionando correctamente",
+        "estado": "Activa"
+    }
+
+
 app.include_router(usuarios.router)
 app.include_router(herramienta.router)
