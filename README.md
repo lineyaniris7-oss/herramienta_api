@@ -179,63 +179,63 @@ Se realizaron pruebas de los endpoints mediante Swagger UI para comprobar el fun
 
 **Registro de usuario (POST)**
 
-![Registro de usuario - Datos](evidencias/cap_u/postdatos.jfif)
-![Registro de usuario - Resultados](evidencias/cap_u/postresultados.jfif)
+![Registro de usuario - Datos](evidencias/cap_u/postdatos.jpg)
+![Registro de usuario - Resultados](evidencias/cap_u/postresultados.jpg)
 
 **Consulta de usuarios (GET)**
 
-![Consulta de usuarios - Datos](evidencias/cap_u/getusuariosdatos.jfif)
-![Consulta de usuarios - Resultados](evidencias/cap_u/getusuariosresultados.jfif)
+![Consulta de usuarios - Datos](evidencias/cap_u/getusuariosdatos.jpg)
+![Consulta de usuarios - Resultados](evidencias/cap_u/getusuariosresultados.jpg)
 
 **Consulta de usuario por ID (GET)**
 
-![Consulta de usuario por ID - Datos](evidencias/cap_u/getiddatos.jfif)
-![Consulta de usuario por ID - Resultados](evidencias/cap_u/getidresultados.jfif)
+![Consulta de usuario por ID - Datos](evidencias/cap_u/getiddatos.jpg)
+![Consulta de usuario por ID - Resultados](evidencias/cap_u/getidresultados.jpg)
 
 **Actualización de usuario (PUT)**
 
-![Actualización de usuario - Datos](evidencias/cap_u/putdatos.jfif)
-![Actualización de usuario - Resultados](evidencias/cap_u/putresultado.jfif)
+![Actualización de usuario - Datos](evidencias/cap_u/putdatos.jpg)
+![Actualización de usuario - Resultados](evidencias/cap_u/putresultado.jpg)
 
 **Eliminación de usuario (DELETE)**
 
-![Eliminación de usuario](evidencias/cap_u/deletedatos.jfif)
+![Eliminación de usuario](evidencias/cap_u/deletedatos.jpg)
 
 **Verificación de eliminación (GET)**
 
-![Verificación de eliminación - Datos](evidencias/cap_u/getevidenciaeliminaciondatos.jfif)
-![Verificación de eliminación - Resultados](evidencias/cap_u/getevidenciaeliminacionresultado.jfif)
+![Verificación de eliminación - Datos](evidencias/cap_u/getevidenciaeliminaciondatos.jpg)
+![Verificación de eliminación - Resultados](evidencias/cap_u/getevidenciaeliminacionresultado.jpg)
 
 ### 9.2. Módulo Herramientas
 
 **Registro de herramienta (POST)**
 
-![Registro de herramienta - Datos](evidencias/cap_h/postdatos.jfif)
-![Registro de herramienta - Resultados](evidencias/cap_h/postresultado.jfif)
+![Registro de herramienta - Datos](evidencias/cap_h/postdatos.jpg)
+![Registro de herramienta - Resultados](evidencias/cap_h/postresultado.jpg)
 
 **Consulta de herramientas (GET)**
 
-![Consulta de herramientas - Datos](evidencias/cap_h/getherramientasdatos.jfif)
-![Consulta de herramientas - Resultados](evidencias/cap_h/getherramientasresultados.jfif)
+![Consulta de herramientas - Datos](evidencias/cap_h/getherramientasdatos.jpg)
+![Consulta de herramientas - Resultados](evidencias/cap_h/getherramientasresultados.jpg)
 
 **Consulta de herramienta por ID (GET)**
 
-![Consulta de herramienta por ID - Datos](evidencias/cap_h/getiddatos.jfif)
-![Consulta de herramienta por ID - Resultados](evidencias/cap_h/getidresultados.jfif)
+![Consulta de herramienta por ID - Datos](evidencias/cap_h/getiddatos.jpg)
+![Consulta de herramienta por ID - Resultados](evidencias/cap_h/getidresultados.jpg)
 
 **Actualización de herramienta (PUT)**
 
-![Actualización de herramienta - Datos](evidencias/cap_h/putdatos.jfif)
-![Actualización de herramienta - Resultados](evidencias/cap_h/putresultado.jfif)
+![Actualización de herramienta - Datos](evidencias/cap_h/putdatos.jpg)
+![Actualización de herramienta - Resultados](evidencias/cap_h/putresultado.jpg)
 
 **Eliminación de herramienta (DELETE)**
 
-![Eliminación de herramienta](evidencias/cap_h/deletedatos.jfif)
+![Eliminación de herramienta](evidencias/cap_h/deletedatos.jpg)
 
 **Verificación de eliminación (GET)**
 
-![Verificación de eliminación - Datos](evidencias/cap_h/getevidenciaeliminaciondatos.jfif)
-![Verificación de eliminación - Resultados](evidencias/cap_h/getevidenciaeliminacionresultado.jfif)
+![Verificación de eliminación - Datos](evidencias/cap_h/getevidenciaeliminaciondatos.jpg)
+![Verificación de eliminación - Resultados](evidencias/cap_h/getevidenciaeliminacionresultado.jpg)
 
 Las pruebas permitieron comprobar el registro, consulta, actualización y eliminación de los datos en ambos módulos.
 
@@ -303,20 +303,20 @@ La API fue desplegada utilizando Render, conectando el repositorio de GitHub y c
 
 Captura del panel de Render donde se muestra el servicio `herramienta-api` con estado activo.
 
-![Servicio desplegado en Render](evidencias/cap_r/servicio_desplegado_en_render.jfif)
+![Servicio desplegado en Render](evidencias/cap_r/servicio_desplegado_en_render.jpg)
 
 ### 12.2. API funcionando en línea
 
 Respuesta de la ruta principal de la API, mostrando que el servicio está funcionando correctamente.
 
-![API funcionando](evidencias/cap_r/API_funcionando_en_línea.jfif)
+![API funcionando](evidencias/cap_r/API_funcionando_en_línea.jpg)
 
 ### 12.3. Documentación Swagger en Render
 
 Documentación interactiva de la API desplegada, donde se visualizan los endpoints de usuarios y herramientas.
 
-![Swagger en Render - Usuarios](evidencias/cap_r/Swagger_en_Render_usuarios.jfif)
-![Swagger en Render - Herramientas](evidencias/cap_r/Swagger_en_Render_herramientas.jfif)
+![Swagger en Render - Usuarios](evidencias/cap_r/Swagger_en_Render_usuarios.jpg)
+![Swagger en Render - Herramientas](evidencias/cap_r/Swagger_en_Render_herramientas.jpg)
 
 
 
