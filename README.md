@@ -309,7 +309,7 @@ Captura del panel de Render donde se muestra el servicio `herramienta-api` con e
 
 Respuesta de la ruta principal de la API, mostrando que el servicio está funcionando correctamente.
 
-![API funcionando](evidencias/cap_r/API_funcionando_en_línea.jpg)
+![API funcionando](evidencias/cap_r/API_funcionando_en_linea.jpg)
 
 ### 12.3. Documentación Swagger en Render
 
